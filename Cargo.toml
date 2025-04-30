@@ -1,0 +1,30 @@
+[package]
+name = "pwkeep"
+version = "0.1.0"
+edition = "2021"
+authors = ["Aki Tuomi <cmouse@cmouse.fi>"]
+repository = "https://github.com/cmouse/pwkeep-rust"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+base64 = "0.22.1"
+base64ct = "1.6.0"
+chacha20poly1305 = { version = "0.10.1", features = ["std"] }
+chrono = { version = "0.4.41", features = ["clock", "std", "serde"] }
+clap = { version = "4.5", features = ["derive"] }
+crypto = { version = "0.5.1", features = ["aead", "cipher", "getrandom"] } 
+dirs = "6.0.0"
+hkdf = { version = "0.12.4", features = ["std"] }
+passwords = "3.1.16"
+pem = "3.0.5"
+pkcs8 = { version = "0.10.2", features = ["pem", "encryption", "pkcs5" ]}
+rand = "0.9.1"
+rand_core = { version = "0.9.3", features = ["os_rng", "std"] }
+rpassword = "7.4.0"
+serde = { version = "1.0.219", features = ["derive"] }
+serde_cbor = { version = "0.11.2", features = ["tags", "std"] }
+sha2 = { version = "0.10.8", features = ["asm"] }
+spawn-editor = "0.0.6"
+tempfile = "3.19.1"
+x25519-dalek = { version = "2.0.1", features = ["serde", "static_secrets"] }
