@@ -102,13 +102,22 @@ fn main() {
         std::process::exit(1);
     }
 
+    let env_password = env::var("PASSWORD");
+
     // ask password 3 times
 
-    for _ in 0..3 {
-        let password = rpassword::prompt_password("Password: ").expect("Password");
-        match storage.load(password) {
-            Ok(_) => { break; }
+    if env_password.is_ok() {
+        match storage.load(env_password.expect("Env password")) {
+            Ok(_) => { }
             Err(e) => { eprintln!("{e}") }
+        }
+    } else {
+        for _ in 0..3 {
+            let password = rpassword::prompt_password("Password: ").expect("Password");
+            match storage.load(password) {
+                Ok(_) => { break; }
+                Err(e) => { eprintln!("{e}") }
+            }
         }
     }
 
@@ -121,7 +130,7 @@ fn main() {
             Ok(entry) => {
                 println!("last_edit: {}", entry.last_edit);
                 println!("");
-                println!("{}", entry.content);
+                print!("{}", entry.content);
             }
             Err(e) => {
                 eprintln!("Cannot open {name}: {e}");

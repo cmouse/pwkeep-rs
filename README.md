@@ -32,6 +32,8 @@ data is not restricted to usernames and passwords, you can store whatever you wa
 
 Editing is done with $EDITOR or editor. 
 
+You can provide password also with $PASSWORD environment variable.
+
 File formats
 ============
 
