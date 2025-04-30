@@ -67,6 +67,7 @@ impl Entry {
     }
 }
 
+#[derive(Debug)]
 pub struct Storage<> {
    pub home: PathBuf,
    keypair: Option<Vec<u8>>,
